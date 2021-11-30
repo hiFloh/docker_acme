@@ -44,7 +44,7 @@ echo $ARGS
 
 letsencrypt certonly --non-interactive $ARGS -m $LE_EMAIL --agree-tos --webroot -w /var/www/cert $DOMAINS
 
-if [[$LE_PFX==1]]
+if [[ $LE_PFX == 1 ]]
 then
   cpwd=$(pwd)
   for f in ./live/*; do
