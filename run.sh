@@ -44,3 +44,17 @@ echo $ARGS
 
 letsencrypt certonly --non-interactive $ARGS -m $LE_EMAIL --agree-tos --webroot -w /var/www/cert $DOMAINS
 
+if [[$LE_PFX==1]]
+then
+  cpwd=$(pwd)
+  for f in ./live/*; do
+	  if [[ $f != "./live/README" ]]
+	  then
+		  echo $f;
+		  cd $f;
+		  openssl pkcs12 -export -out cert.pfx -inkey privkey.pem -in cert.pem -certfile chain.pem -passout pass:$PKS_PW
+		  cd $cpwd
+	  fi
+  done
+fi
+
