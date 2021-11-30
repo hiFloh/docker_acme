@@ -52,7 +52,7 @@ then
 	  then
 		  echo $f;
 		  cd $f;
-		  openssl pkcs12 -export -out cert.pfx -inkey privkey.pem -in cert.pem -certfile chain.pem -passout pass:$PKS_PW
+		  openssl pkcs12 -export -out cert.pfx -inkey privkey.pem -in cert.pem -certfile chain.pem -passout pass:$PFX_PW
 		  cd $cpwd
 	  fi
   done
