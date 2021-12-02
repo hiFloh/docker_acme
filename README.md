@@ -10,3 +10,7 @@ Docker file to issue a certificate from letsencrypt using the web-root of anothe
 |LE_EXPAND      | 1 for true  | see --expand in letsencrypt                           |
 |LE_PFX         | 1 for true  | set to 1 to convert certificat to pfx after issueing  |
 |PFX_PW         | string      | password to use for pfx file                          |
+
+## volumes
+- /var/www/cert     certroot used to issue
+- /etc/letsencrypt  path where certs and userifo are stored
