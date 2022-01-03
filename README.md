@@ -1,3 +1,4 @@
+[![Docker Image CI](https://github.com/hiflohDocker/acme_docker/actions/workflows/build.yml/badge.svg)](https://github.com/hiflohDocker/acme_docker/actions/workflows/build.yml)
 # acme_docker
 Docker file to issue a certificate from letsencrypt using the web-root of another container.
 
