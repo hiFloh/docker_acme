@@ -9,12 +9,6 @@ function isEmail(){
 }
 
 
-if test -d "/var/www/cert/" 
-then
-  echo "webroot exists"
-else
-  exit -1
-fi
 
 if [[ $LE_ISNOTEST != 1 ]] 
 then
@@ -47,6 +41,12 @@ echo $ARGS
 case $LE_MODE is
 "webroot")
   MODE="--webroot -w /var/www/cert"
+  if test -d "/var/www/cert/" 
+  then
+    echo "webroot exists"
+  else
+    exit -1
+  fi
 "standalone")
   MODE="--standalone"
 esac
