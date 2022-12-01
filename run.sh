@@ -38,7 +38,7 @@ echo $ARGS
 
 
 
-case $LE_MODE is
+case "$LE_MODE" is
 "webroot")
   MODE="--webroot -w /var/www/cert"
   if test -d "/var/www/cert/" 
@@ -47,8 +47,10 @@ case $LE_MODE is
   else
     exit -1
   fi
+  ;;
 "standalone")
   MODE="--standalone"
+  ;;
 esac
   
 letsencrypt certonly --non-interactive $ARGS -m $LE_EMAIL --agree-tos $MODE $DOMAINS
