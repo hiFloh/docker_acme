@@ -42,7 +42,16 @@ then
 fi
 echo $ARGS
 
-letsencrypt certonly --non-interactive $ARGS -m $LE_EMAIL --agree-tos --webroot -w /var/www/cert $DOMAINS
+
+
+case $LE_MODE is
+"webroot")
+  MODE="--webroot -w /var/www/cert"
+"standalone")
+  MODE="--standalone"
+esac
+  
+letsencrypt certonly --non-interactive $ARGS -m $LE_EMAIL --agree-tos $MODE $DOMAINS
 
 if [[ $LE_PFX == 1 ]]
 then
