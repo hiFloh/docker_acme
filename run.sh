@@ -38,7 +38,7 @@ echo $ARGS
 
 
 
-case "$LE_MODE" is
+case "$LE_MODE" in
 "webroot")
   MODE="--webroot -w /var/www/cert"
   if test -d "/var/www/cert/" 
