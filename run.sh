@@ -53,7 +53,7 @@ case "$LE_MODE" in
   ;;
 esac
   
-letsencrypt certonly --non-interactive $ARGS -m $LE_EMAIL --agree-tos $MODE $DOMAINS
+letsencrypt certonly --preferred-chain "DST Root CA X3" --non-interactive $ARGS -m $LE_EMAIL --agree-tos $MODE $DOMAINS
 
 if [[ $LE_PFX == 1 ]]
 then
