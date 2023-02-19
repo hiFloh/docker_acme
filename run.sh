@@ -55,7 +55,7 @@ esac
 
 if [ -n "$LE_PREF_CHAIN" ]
 then
-  ARGS="$ARGS --prefered-chain \"$LE_PREF_CHAIN\""
+  ARGS="$ARGS --preferred-chain \"$LE_PREF_CHAIN\""
 fi
   
 letsencrypt certonly --non-interactive $ARGS -m $LE_EMAIL --agree-tos $MODE $DOMAINS
