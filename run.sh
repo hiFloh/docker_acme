@@ -52,8 +52,13 @@ case "$LE_MODE" in
   MODE="--standalone"
   ;;
 esac
+
+if [ -n "$LE_PREF_CHAIN" ]
+then
+  ARGS="$ARGS --prefered-chain \"$LE_PREF_CHAIN\""
+fi
   
-letsencrypt certonly --preferred-chain "DST Root CA X3" --non-interactive $ARGS -m $LE_EMAIL --agree-tos $MODE $DOMAINS
+letsencrypt certonly --non-interactive $ARGS -m $LE_EMAIL --agree-tos $MODE $DOMAINS
 
 if [[ $LE_PFX == 1 ]]
 then
